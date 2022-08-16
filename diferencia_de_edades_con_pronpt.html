@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<h1>Diferencia de edades</h1>
+
+<script>
+
+	function saltarLinea() {
+		document.write("<br><br>");
+	}
+
+	function imprimir(mensaje) {
+		document.write("<big><b>" + mensaje + "</b></big>");
+		saltarLinea();
+	}
+	var restar = 0;
+
+imprimir("Calcula la diferencia de edad entre dos personas");
+
+	var edad1= parseInt(prompt("Ingresa la primera edad por favor"));
+	var edad2= parseInt(prompt("Ingresa la segunda edad por favor"));
+
+	if (edad1 < edad2) {
+		restar = edad2 - edad1;
+	} else { restar = edad1 - edad2; }
+
+imprimir("La diferencia de edad entre la persona 1 con " + edad1 + " años, y la persona 2 con " + edad2 + " años, es " + restar + " años.");
+
+</script>

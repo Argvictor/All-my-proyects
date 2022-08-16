@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <h3>Aquí está el código que inicia sesión, pero ATENCIÓN, con 3 oportunidades al usuario</h3>
+  <!--Nuestro trabajo es cambiar el código para darle al usuario, 3 intentos-->
+
+  <script>
+
+    var inicioDeSesionRegistrado = "alura";
+    var contrasenhaRegistrada = "alura321";
+
+
+
+    var contador = 1;
+    var numeroIntentos = 3;
+
+    while (contador <= numeroIntentos) {
+
+    var inicioDeSesionIngresado = prompt("Ingrese su usuario");
+    var contrasenhaIngresada = prompt("Ingrese su contraseña");
+
+	if( inicioDeSesionRegistrado == inicioDeSesionIngresado && contrasenhaRegistrada == contrasenhaIngresada ) {
+        alert("Bienvenido al sistema " + inicioDeSesionIngresado);
+	document.write("Bienvenido al sistema " + inicioDeSesionIngresado);
+	break;
+    } else if (contador != numeroIntentos) {
+        alert("inicio de sesión inválido. Intento " + contador + " de " + numeroIntentos + ". Por favor intente de nuevo");
+    } else {
+	alert("Agotaste el número de Intentos... BLOQUEADO HASTA MAÑANA!!!");
+	document.write("Agotaste el número de Intentos... BLOQUEADO HASTA MAÑANA!!!");
+}
+	contador++;
+}
+  </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

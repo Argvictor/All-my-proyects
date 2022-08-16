@@ -1,0 +1,149 @@
+
+
+body {
+    width: 100%; 
+    display: inline-block;
+    background-image: linear-gradient(lightblue, white);
+    margin: 0% 0% 2% 0%;
+
+}
+
+#logo {
+    width: 8%;
+    margin: 3% 0% 0% 0%; 
+    display: flex-flow;
+    //visibility: hidden;
+}
+
+h3 {
+    font-family: sans-serif;
+    text-align: center;
+    margin: -3% 0% 0% 0%; 
+    color: #000055;
+    //font-size: 100%;
+}
+
+.encriptar {
+    color: white;
+    background-color: #770000;
+    border-radius: 25px;
+    border: none;
+    margin: 2% 0% 0% 11%;
+    padding: 8px;
+    font-family: sans-serif;
+    font-size: 1.8vw;
+    width: 15%;
+    //display: flex-flow;
+    display: inline-block;
+    
+}
+
+.encriptar:hover{
+    color: #000000;
+    border: 2px solid #000000;
+    background: #cccccc;
+    transition-duration: 0.3s;
+}
+
+.desencriptar {
+    color: white;
+    background-color: #008800;
+    border-radius: 25px;
+    border: none;
+    margin: 2% 0% 0% 15%;
+    //margin: 0% 6% 0% 15%;
+    padding: 8px;
+    font-family: sans-serif;
+    font-size: 1.8vw;
+    width: 15%;
+    //display: flex-flow;
+    display: inline-block;
+    
+}
+
+.desencriptar:hover{
+    color: #000000;
+    border: 2px solid #000000;
+    background: #cccccc;
+    transition-duration: 0.3s;
+}
+    
+    
+.copiar {
+    color: #000000;
+    background-color: #cccccc;
+    border-radius: 25px;
+    inner-border: 2px solid #000000;
+    margin: 2% 0% 0% 15%;
+    padding: 8px;
+    font-family: sans-serif;
+    font-size: 1.8vw;
+    width: 15%;
+    //display: inline-block;
+    display: none;
+    
+}
+
+.copiar:hover{
+    color: #ffffff;
+    border: 2px solid #0000ff;
+    background: #0000ff;
+    transition-duration: 0.3s;
+}
+
+
+
+#ingreso {
+    width: 51%;
+    //display: flex-flow;
+    display: inline-block;
+    margin: 1% 0% 1% 8%;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    
+}
+
+#salida {
+    width: 25%;
+    //display: inline-block;
+    //display: flex-flow;
+    display: none;
+    margin: 1% 0% 1% 7%;
+    border: none;
+    background: transparent;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    //padding: 10px;
+}
+
+#buscador {
+    width: 29%;
+    //display: inline-block;
+    //display: none;
+    margin: 1% 2% -7% 5%;
+    
+}
+
+
+#minusculas {
+    width: 20%;
+    margin: 0% 0% -1% 8%;
+}
+
+
+p {
+    font-size: 1.2vw;
+    text-align: center;
+    color: black;
+    margin: 1% 0% 1%;
+    display: flex-flow;
+}
+
+a {
+    color: orangered;
+}

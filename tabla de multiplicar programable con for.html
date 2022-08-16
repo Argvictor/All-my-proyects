@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+	</head>
+	<body>
+		<h3>Tabla de Multiplicar en: html/javascript usando for y preguntando al usuario que tabla quiere ingresando el primer número o - Tabla del... - y luego la cifra que mostrará hasta que multiplicador!</h3>
+		<br>
+		<script>
+		
+
+		var factor1 = parseInt(prompt("Ingresa el primer factor para mostrar tu tabla"));
+		
+		var cantidadFactores = parseInt(prompt("Ingresa una cifra para saber hasta que número multiplicará"));
+
+
+		for (var contador = 1; contador <= cantidadFactores; contador++) {
+			
+			document.write(factor1 + " por " + contador + " = " + factor1 * contador +"<br>");
+		}
+		document.write("<br><br><h3>Gracias por utilizar esta TABLA!</h3>")
+
+		</script>
+	</body>
+</html>

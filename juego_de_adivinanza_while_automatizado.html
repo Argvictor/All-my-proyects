@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+
+<h2>PROGRAMA JUEGO DE ADIVINACION CON WHILE, E INGRESO DE INTENTOS, TOTALMENTE AUTOMATIZADO</h2>
+
+<script>
+
+    
+    var numeroIntentos = parseInt(prompt("Ingresa un número de intentos"));
+    alert("Elegiste " + numeroIntentos + " Intentos!!!");
+
+    document.write("Elegiste " + numeroIntentos + " Intentos!!!<br><br>");
+    var contador = 1;
+    var numeroLanzado = 0;
+    var numeroPensado = Math.round(Math.random()*10);
+
+    while (contador <= numeroIntentos) {
+	    
+	    numeroLanzado = parseInt(prompt("Ingresa un número entre 0 y 10"));
+
+		if (numeroLanzado > 10) {
+		    alert("Estás obligado a elegir un número del 0 al 10 ESTÁS SALIENDO DEL SISTEMA!! por haber elegido el número " + numeroLanzado);
+
+		    document.write("Estás obligado a elegir un número del 0 al 10 ESTÁS SALIENDO DEL SISTEMA!! por haber elegido el número " + numeroLanzado + " <br><br>");
+		    break;
+		}
+		else {
+	    alert("Ingresaste el número " + numeroLanzado);
+	    document.write("Ingresaste el número " + numeroLanzado + "<br><br>");
+		}
+	if (numeroPensado == numeroLanzado) {
+        alert("Acertaste ya que tu número fué " + numeroLanzado + " y el número ganador es " + numeroPensado + " y fué en el " + contador + "° intento... Excelente elección, GANASTE!!!<br><br>");
+
+	document.write("Acertaste ya que tu número fué " + numeroLanzado + " y el número ganador es " + numeroPensado + " y fué en el " + contador + "° intento... Excelente elección, GANASTE!!!<br><br>");
+	contador = numeroIntentos + 1;
+        }
+
+        else if ((numeroIntentos > 1) && (numeroIntentos == contador)) {
+		
+        alert("Erraste otra vez, tu número fué " + numeroLanzado + " y el número ganador es " + numeroPensado + " y es cuestión de suerte, no te rindas... Sigue participando!!!");
+	document.write("Erraste otra vez, tu número fué " + numeroLanzado + " y el número ganador es " + numeroPensado + " y es cuestión de suerte, no te rindas... Sigue participando!!!<br><br>");
+	contador = numeroIntentos + 1;
+	break; 
+
+        }
+	else if (numeroIntentos == 1 && contador == 1) {
+
+	alert("Erraste esta vez, tu número fué " + numeroLanzado + " y el número ganador es " + numeroPensado + " y es cuestión de suerte, no te rindas... Sigue participando!!!");
+ 
+	document.write("Erraste esta vez, tu número fué " + numeroLanzado + " y el número ganador es " + numeroPensado + " y es cuestión de suerte, no te rindas... Sigue participando!!!<br><br>");
+	break;
+
+	}
+
+	else {
+		alert("Erraste esta vez, no te rindas... Sigue participando!!!");  
+
+		document.write("Erraste esta vez, no te rindas... Sigue participando!!!<br><br>");
+	}
+
+	contador++;
+        }
+	
+	document.write("Te esperamos pronto por aquí!!!");
+
+</script>
