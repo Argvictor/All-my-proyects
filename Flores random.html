@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<canvas width = "600" height = "400"></canvas>
+
+<script>
+var pantalla = document.querySelector("canvas");
+var pincel = pantalla.getContext("2d");
+
+
+function floresRandom(cantidad) {
+
+    var aleatorio = Math.floor(Math.random() * cantidad) + 1;
+    for(var i = 1; i <= aleatorio; i++) {
+
+       var x = Math.floor(Math.random() * 600);
+       var y = Math.floor(Math.random() * 400);
+
+       pincel.fillStyle = "red";
+       pincel.beginPath();
+       pincel.arc(x, y +30, 15, 0, Math.PI * 2);
+       pincel.closePath();
+       pincel.fill();  
+       pincel.fillStyle = "yellow";
+       pincel.strokeStyle = "black";
+       pincel.lineWidth = 2;
+       pincel.beginPath();
+       pincel.arc(x +30, y +30, 15, 0, Math.PI * 2);
+       pincel.stroke();
+       pincel.closePath();
+       pincel.fill();  
+       pincel.fillStyle = "green";
+       pincel.beginPath();
+       pincel.arc(x +60, y +30, 15, 0, Math.PI * 2);
+       pincel.closePath();
+       pincel.fill();  
+       pincel.fillStyle = "blue";
+       pincel.beginPath();
+       pincel.arc(x +30, y, 15, 0, Math.PI * 2);
+       pincel.closePath();
+       pincel.fill();  
+       pincel.fillStyle = "purple";
+       pincel.beginPath();
+       pincel.arc(x +30, y +60, 15, 0, Math.PI * 2);
+       pincel.closePath();
+       pincel.fill();   
+
+
+    }
+    
+}
+
+
+
+
+floresRandom(prompt("Por favor ingresa una cantidad máxima de flores"));
+
+
+
+</script>

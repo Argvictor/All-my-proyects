@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head>
+  <title>Fecha y Hora formateada en Javascript.</title>
+  <meta charset = "utf-8"/>
+  <meta name = "viewport" content = "width = device-width, initial scale = 1.0"/>
+</head>
+<body style = "background-color: #000000;">
+  <canvas width = "700" height = "285"></canvas>
+
+    <script>
+
+	var pantalla = document.querySelector("canvas");
+	var pincel = pantalla.getContext("2d");
+	pantalla.style.border = "1vw dotted #55ff00";
+	pantalla.style.margin = "0 8%";
+	pantalla.style.width = "80%";
+	pantalla.style.borderRadius = "10vw";
+	pantalla.style.background = "#000000";
+
+	var anio;
+	var mes;
+	var nombreMes;
+	var dia;
+	var nombreDia;
+        var horas;
+        var minutos;
+        var segundos;
+        var verHora;
+	var verFecha;
+        var decimas;
+        var centesimas;
+        var miliesimas;
+	var anioA;
+	var anioB;
+	
+
+    function motorReloj () {
+
+        const ahora = new Date();
+	anio = ahora.getFullYear();
+	mes = ahora.getMonth() + 1;
+	if (ahora.getDate() < 10) {
+	dia = "0" + ahora.getDate();
+	} else {
+	    dia = ahora.getDate();
+	    }
+	horas = ahora.getHours();
+	minutos = ahora.getMinutes();
+	segundos = ahora.getSeconds();
+	milesimas = ahora.getMilliseconds(); //0-999
+	centesimas = Math.floor(milesimas / 10); //0-99
+	decimas = Math.floor(centesimas / 10); //0-9
+
+	if (segundos < 10) {
+	    segundos = "0" + segundos;
+	}
+	if (minutos < 10) {
+	    minutos = "0" + minutos;
+	}
+	if (horas < 10) {
+	    horas = "0" + horas;
+	}  
+	switch (ahora.getMonth()) {
+	case 0:
+	    nombreMes = "ENE";
+	    break;
+	case 1:
+	    nombreMes = "FEB";
+	    break;
+	case 2:
+	    nombreMes = "MAR";
+	    break;
+	case 3:
+	    nombreMes = "ABR";
+	    break;
+	case 4:
+	    nombreMes = "MAY";
+	    break;
+	case 5:
+	    nombreMes = "JUN";
+	    break;
+	case 6:
+	    nombreMes = "JUL";
+	    break;
+	case 7:
+	    nombreMes = "AGO";
+	    break;
+	case 8:
+	    nombreMes = "SET";
+	    break;
+	case 9:
+	    nombreMes = "OCT";
+	    break;
+	case 10:
+	    nombreMes = "NOV";
+	    break;
+	case 11:
+	    nombreMes = "DIC";
+	    break;
+	}
+  
+	switch (ahora.getDay()) {
+	case 0:
+	    nombreDia = "DOM";
+	    break;
+	case 1:
+	    nombreDia = "LUN";
+	    break;
+	case 2:
+	    nombreDia = "MAR";
+	    break;
+	case 3:
+	    nombreDia = "MIE";
+	    break;
+	case 4:
+	    nombreDia = "JUE";
+	    break;
+	case 5:
+	    nombreDia = "VIE";
+	    break;
+	case 6:
+	    nombreDia = "SAB";
+	    break;
+	}
+
+	anioA = Math.floor(anio / 100);
+	anioB = anio - anioA * 100;
+
+    }
+    setInterval(motorReloj, 1);
+
+    function verHoras() {
+        pincel.clearRect(0, 30, 370, 280);
+        pincel.fillStyle = "lightgreen";
+        pincel.font = "260px Arial Rounded MT Bold";
+        pincel.fillText(horas, 55, 235);
+    }
+    setInterval(verHoras, 1000);
+
+    function verMinutos() {
+        pincel.clearRect(370, 40, 194, 130);
+        pincel.fillStyle = "lightgreen";
+        pincel.font = "150px Arial Rounded MT Bold";
+        pincel.fillText(minutos, 370, 160);
+    }
+    setInterval(verMinutos, 1000);
+
+    function verSegundos () {
+        pincel.clearRect(377, 165, 100, 80);
+        pincel.font = "80px Arial Rounded MT Bold";
+        pincel.fillStyle = "#cccc44";
+        pincel.fillText(segundos, 377, 235);
+    }
+    setInterval(verSegundos, 1000);
+
+    function verCentesimas () {
+        pincel.clearRect(473, 180, 80, 60);
+	pincel.fillStyle = "lightgrey";
+        pincel.font = "20px Arial Rounded MT Bold";
+        pincel.fillText("cents", 478, 190);
+        pincel.font = "50px Arial Rounded MT Bold";
+        pincel.fillStyle = "#cccc44"; //"#55ff00"
+        pincel.fillText(centesimas, 475, 236);
+    }
+    setInterval(verCentesimas, 10);
+
+    function fecha () {
+	pincel.clearRect(573, 0, 120, 285);
+	pincel.fillStyle = "#55ff00";
+	pincel.font = "60px Arial Rounded MT Bold";
+	pincel.fillText(dia, 560, 119);
+	pincel.fillText(anioA, 560, 190);
+	pincel.fillText(anioB, 560, 236);
+	pincel.fillStyle = "white";
+	pincel.font = "20px Arial Rounded MT Bold";
+	pincel.fillText(nombreDia, 575, 69);
+	pincel.fillText(nombreMes, 575, 140);
+    }
+	setInterval(fecha, 1000);
+    
+    function destelloLed() {
+
+	if(decimas < 5) {
+	  pincel.fillStyle = "#ff0000";
+	  pincel.clearRect(50, 0, 400, 40);
+	} else {
+	  pincel.fillStyle = "#0033ff";
+	}
+
+	switch (decimas) {
+	  case 0: {
+	    pincel.beginPath();
+	    pincel.arc(335, 5, 2, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(365, 5, 2, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 1: {
+	    pincel.beginPath();
+	    pincel.arc(330, 8, 3, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(370, 8, 3, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 2: {
+	    pincel.beginPath();
+	    pincel.arc(322, 12, 4, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(378, 12, 4, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 3: {
+	    pincel.beginPath();
+	    pincel.arc(310, 16, 5, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(390, 16, 5, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 4: {
+	    pincel.beginPath();
+	    pincel.arc(294, 20, 6, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(406, 20, 6, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 5: {
+	    pincel.beginPath();
+	    pincel.arc(294, 20, 6, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(406, 20, 6, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 6: {
+	    pincel.beginPath();
+	    pincel.arc(310, 16, 5, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(390, 16, 5, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 7: {
+	    pincel.beginPath();
+	    pincel.arc(322, 12, 4, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(378, 12, 4, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 8: {
+	    pincel.beginPath();
+	    pincel.arc(330, 8, 3, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(370, 8, 3, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	  case 9: {
+	    pincel.beginPath();
+	    pincel.arc(335, 5, 2, 0, Math.PI * 2);
+	    pincel.fill();
+	    pincel.beginPath();
+	    pincel.arc(365, 5, 2, 0, Math.PI * 2);
+	    pincel.fill();
+	    break;
+	  }
+	 
+	}
+    }
+
+
+	setInterval(destelloLed, 10);
+
+    </script>
+  </body>
+</html>
