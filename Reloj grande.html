@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<body Style = "background-color: black"></body>
+<canvas width = "1200" height = "280" Style = "border-radius: 60px; margin: 5%;"></canvas>
+
+<script>
+
+var pantalla = document.querySelector("canvas");
+var pincel = pantalla.getContext("2d");
+pantalla.style.border = "8px solid blue";
+pantalla.style.background = "#002222";
+
+
+
+var x = 0;
+var y = 260;
+
+    function esfera () {
+
+      pincel.clearRect(x - 12, y - 12, 24, 24);
+      pincel.fillStyle = "#55ff00";
+      pincel.beginPath();
+      pincel.arc(x, y, 7, 0, Math.PI * 2);
+      pincel.closePath();
+      pincel.fill();
+     
+      if (x < 1185 && y == 260) { x++; 
+      } else if (x == 1185 && y == 260) { y--;
+      } else if (y < 260 && y > 20 && x == 1185) { y--;
+      } else if (y == 20 && x == 1185) { x--;
+      } else if (x < 1185 && x > 15 && y == 20) { x--;
+      } else if (x == 15 && y == 20) { y++;
+      } else if (y > 20 && y < 260 && x == 15) { y++;
+      } else if (y == 260 && x == 15) { x++;
+      }
+    }
+
+setInterval(esfera, 10);
+
+    var horas;
+    var minutos;
+    var segundos;
+    var verHora;
+
+    function reloj () {
+
+    const horaActual = new Date();
+    horas = horaActual.getHours();
+    minutos = horaActual.getMinutes();
+    segundos = horaActual.getSeconds();
+
+    if (segundos < 10) {
+        segundos = "0" + segundos;
+    }
+    if (minutos < 10) {
+        minutos = "0" + minutos;
+    }
+    if (horas < 10) {
+        horas = "0" + horas;
+    }
+
+    verHora = horas + ":" + minutos + ":" + segundos;
+    
+    pincel.clearRect(40, 40, 1130, 210);
+    pincel.fillStyle = "grey";
+    pincel.font = "260px Arial Rounded MT Bold";
+    pincel.fillText(verHora, 50, 235);
+    pincel.lineWidth = 5;
+    pincel.strokeStyle = "white";
+    pincel.strokeText(verHora, 50, 235);
+
+}
+
+    setInterval(reloj, 100);
+
+</script>
+
+
+</html>
